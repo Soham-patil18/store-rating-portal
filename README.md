@@ -10,7 +10,7 @@ A complete, production-ready web application built according to the **FullStack 
 - **Frontend**: React.js (Vite + Tailwind CSS + Lucide Icons)
 - **Authentication**: JWT token authentication with bcrypt password hashing
 
----
+---**Live Demo:https://fullstack-alpha-weld.vercel.app/
 
 ## 👥 User Roles & Features
 
@@ -93,7 +93,7 @@ npm install
 npm run dev      # Starts Vite dev server on http://localhost:3000
 ```
 
-Open your browser at **fullstack-alpha-weld.vercel.app**!
+Open your browser at **https://fullstack-alpha-weld.vercel.app/**!
 
 ---
 

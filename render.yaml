@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: store-rating-backend
+    runtime: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm run seed && npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: DB_DIALECT
+        value: sqlite
+      - key: JWT_SECRET
+        value: super-secret-jwt-key-rating-portal-2026

@@ -1,6 +1,7 @@
 {
   "name": "store-rating-portal",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
@@ -8,5 +9,17 @@
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd frontend && npm run dev",
     "seed": "cd backend && npm run seed"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7",
+    "mysql2": "^3.12.0"
   }
 }

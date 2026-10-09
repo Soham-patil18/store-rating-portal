@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { sequelize } from './models/index.js';
+import { seedInitialData } from './seed.js';
 import authRoutes from './routes/authRoutes.js';
 import storeRoutes from './routes/storeRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
@@ -38,6 +39,8 @@ const startServer = async () => {
     await sequelize.sync();
     console.log('Database models synchronized.');
 
+    await seedInitialData(false);
+
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
@@ -46,6 +49,10 @@ const startServer = async () => {
   }
 };
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+} else {
+  sequelize.sync().then(() => seedInitialData(false)).catch(console.error);
+}
 
 export default app;

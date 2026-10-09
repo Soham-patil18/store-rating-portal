@@ -1,0 +1,57 @@
+// Validation utilities matching PDF specifications exactly
+
+export const validateName = (name) => {
+  if (!name || typeof name !== 'string') {
+    return { valid: false, message: 'Name is required' };
+  }
+  const trimmed = name.trim();
+  if (trimmed.length < 20 || trimmed.length > 60) {
+    return { valid: false, message: 'Name must be between 20 and 60 characters' };
+  }
+  return { valid: true };
+};
+
+export const validateEmail = (email) => {
+  if (!email || typeof email !== 'string') {
+    return { valid: false, message: 'Email is required' };
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.trim())) {
+    return { valid: false, message: 'Please provide a valid email address' };
+  }
+  return { valid: true };
+};
+
+export const validatePassword = (password) => {
+  if (!password || typeof password !== 'string') {
+    return { valid: false, message: 'Password is required' };
+  }
+  if (password.length < 8 || password.length > 16) {
+    return { valid: false, message: 'Password must be between 8 and 16 characters' };
+  }
+  if (!/[A-Z]/.test(password)) {
+    return { valid: false, message: 'Password must include at least one uppercase letter' };
+  }
+  if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    return { valid: false, message: 'Password must include at least one special character' };
+  }
+  return { valid: true };
+};
+
+export const validateAddress = (address) => {
+  if (!address || typeof address !== 'string') {
+    return { valid: false, message: 'Address is required' };
+  }
+  if (address.trim().length > 400) {
+    return { valid: false, message: 'Address must not exceed 400 characters' };
+  }
+  return { valid: true };
+};
+
+export const validateRating = (rating) => {
+  const num = Number(rating);
+  if (!Number.isInteger(num) || num < 1 || num > 5) {
+    return { valid: false, message: 'Rating must be an integer between 1 and 5' };
+  }
+  return { valid: true };
+};

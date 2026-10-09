@@ -93,7 +93,7 @@ npm install
 npm run dev      # Starts Vite dev server on http://localhost:3000
 ```
 
-Open your browser at **http://localhost:3000**!
+Open your browser at **fullstack-alpha-weld.vercel.app**!
 
 ---
 
